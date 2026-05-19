@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prasham Kumbhare | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.background{
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-2;
+}
+
+.glow1{
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00bfff;
+    filter:blur(180px);
+    opacity:.18;
+    top:-120px;
+    right:-120px;
+    z-index:-1;
+}
+
+.glow2{
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:#00bfff;
+    filter:blur(180px);
+    opacity:.12;
+    bottom:-120px;
+    left:-120px;
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    backdrop-filter:blur(15px);
+    background:rgba(0,0,0,.35);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+    width:92%;
+    max-width:1350px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#00bfff;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00bfff;
+}
+
+/* CONTAINER */
+
+.container{
+    width:92%;
+    max-width:1350px;
+    margin:auto;
+    padding-top:120px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:50px;
+    align-items:center;
+}
+
+.hero-left h1{
+    font-size:85px;
+    line-height:1;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.hero-left h1 span{
+    color:#00bfff;
+}
+
+.role{
+    font-size:25px;
+    color:#bdbdbd;
+    margin-bottom:30px;
+}
+
+.about{
+    line-height:2;
+    color:#d2d2d2;
+    font-size:17px;
+    margin-bottom:40px;
+    max-width:700px;
+}
+
+.buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 30px;
+    border-radius:16px;
+    border:none;
+    text-decoration:none;
+    font-weight:600;
+    transition:.4s;
+    display:inline-block;
+}
+
+.primary{
+    background:#00bfff;
+    color:black;
+}
+
+.primary:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 40px rgba(0,191,255,.35);
+}
+
+/* PROFILE CARD */
+
+.profile-card{
+    position:relative;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:35px;
+    padding:25px;
+    overflow:hidden;
+    backdrop-filter:blur(10px);
+}
+
+.profile-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg, rgba(0,191,255,.15), transparent);
+}
+
+.profile-card img{
+    width:100%;
+    border-radius:25px;
+    object-fit:cover;
+    position:relative;
+    z-index:1;
+}
+
+.card-info{
+    position:relative;
+    z-index:1;
+    margin-top:20px;
+}
+
+.card-info h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.location{
+    color:#cfcfcf;
+    margin-bottom:20px;
+}
+
+.contact-links{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.contact-links a{
+    text-decoration:none;
+    color:white;
+    padding:14px 18px;
+    border-radius:14px;
+    transition:.3s;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+}
+
+.gmail{
+    background:rgba(255,255,255,.08);
+}
+
+.linkedin{
+    background:#0077b5;
+}
+
+.contact-links a:hover{
+    transform:translateX(8px);
+}
+
+/* SECTION */
+
+section{
+    margin-top:120px;
+}
+
+.section-title{
+    font-size:48px;
+    margin-bottom:50px;
+    position:relative;
+    display:inline-block;
+}
+
+.section-title::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-12px;
+    width:70%;
+    height:5px;
+    border-radius:20px;
+    background:#00bfff;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+/* CARD */
+
+.card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    padding:30px;
+    border-radius:30px;
+    transition:.4s;
+    backdrop-filter:blur(10px);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#00bfff;
+    box-shadow:0 20px 50px rgba(0,191,255,.12);
+}
+
+.card h3{
+    font-size:26px;
+    margin-bottom:12px;
+}
+
+.card h4{
+    color:#00bfff;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#d2d2d2;
+    line-height:1.9;
+}
+
+/* SKILLS */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.skill{
+    padding:14px 22px;
+    border-radius:40px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.skill:hover{
+    background:#00bfff;
+    color:black;
+    transform:scale(1.08);
+}
+
+/* LANGUAGE */
+
+.lang{
+    margin-bottom:35px;
+}
+
+.lang-top{
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.bar{
+    width:100%;
+    height:14px;
+    background:#2a2a2a;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:#00bfff;
+    border-radius:30px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:80px 20px;
+    color:#9f9f9f;
+    margin-top:80px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero-left h1{
+        font-size:65px;
+    }
+
+    .profile-card{
+        max-width:550px;
+        margin:auto;
+    }
+
+}
+
+@media(max-width:650px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-left h1{
+        font-size:50px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="nav-container">
+
+<div class="logo">
+Prasham<span>.</span>
+</div>
+
+<div class="nav-links">
+<a href="#experience">Experience</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+</div>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-left">
+
+<h1>
+Prasham <span>Kumbhare</span>
+</h1>
+
+<div class="role">
+B.Tech CSE Student • Developer • Research Enthusiast
+</div>
+
+<div class="about">
+Passionate Computer Science Engineering student with strong interests in software development, AI, innovation, research, and modern technology. Experienced in internships, product growth, technical projects, and community initiatives with a focus on creating impactful and creative solutions. <br><br><br>
+Contact Me: <br>
+📩Gmail: prashamkumbhare2@gmail.com <br>
+🔗LinkedIn Profile: https://www.linkedin.com/in/prasham-kumbhare-a82473364
+</div>
+
+<div class="buttons">
+
+<a href="Prasham_Kumbhare_Resume .pdf" download class="btn primary">
+Download Resume
+</a>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE -->
+
+<div class="profile-card">
+
+<!-- PUT YOUR IMAGE NAME HERE -->
+<img src="image.jpeg" alt="Prasham">
+
+<div class="card-info">
+
+<h2>Prasham Kumbhare</h2>
+
+<div class="location">
+Pune, Maharashtra, India
+</div>
+
+<div class="contact-links">
+
+<a href="mailto:prashamkumbhare2@gmail.com" class="gmail">
+📧 prashamkumbhare2@gmail.com
+</a>
+
+<a href="https://www.linkedin.com/in/prasham-kumbhare-a82473364" target="_blank" class="linkedin">
+🔗 LinkedIn Profile
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+<h2 class="section-title">Experience</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Growth & Product Intern</h3>
+<h4>Budlee AI • Remote</h4>
+
+<p>
+Worked on startup growth strategies, product research, user analysis, and feature discussions while collaborating with early-stage development initiatives.
+</p>
+</div>
+
+<div class="card">
+<h3>Community Development Intern</h3>
+<h4>Reelief Foundation Pune</h4>
+
+<p>
+Selected through university internship program for community outreach, awareness programs, and development initiatives focused on real-world impact.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+<h2 class="section-title">Education</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>D Y Patil International University</h3>
+
+<h4>B.Tech Computer Science Engineering</h4>
+
+<p>
+2025 – 2029 <br><br>
+
+Focused on software engineering, development, AI, programming, and modern computing systems.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>St Paul Public School & Jr College</h3>
+
+<h4>Higher Secondary Education (PCM)</h4>
+
+<p>
+Achieved 89.83% with strong academic performance in Physics, Chemistry, and Mathematics.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2 class="section-title">Skills</h2>
+
+<div class="skills">
+
+<div class="skill">Python</div>
+<div class="skill">C</div>
+<div class="skill">C++</div>
+<div class="skill">JavaScript</div>
+<div class="skill">React.js</div>
+<div class="skill">Node.js</div>
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">GitHub</div>
+<div class="skill">SQL</div>
+<div class="skill">AI</div>
+<div class="skill">Research</div>
+<div class="skill">Problem Solving</div>
+
+</div>
+
+</section>
+
+<!-- LANGUAGES -->
+
+<section>
+
+<h2 class="section-title">Languages</h2>
+
+<div class="card">
+
+<div class="lang">
+
+<div class="lang-top">
+English
+</div>
+
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
+
+</div>
+
+<div class="lang">
+
+<div class="lang-top">
+Hindi
+</div>
+
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
+
+</div>
+
+<div class="lang">
+
+<div class="lang-top">
+Japanese
+</div>
+
+<div class="bar">
+<div class="fill" style="width:25%"></div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2 class="section-title">Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Intruder / Obstacle Detection System</h3>
+
+<p>
+Developed an LM358 and Logic Gates based digital electronics system using LDR sensors for obstacle and intruder detection with LED indication.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Systems Research Publication</h3>
+
+<p>
+Comparative Analysis of Execution Efficiency and System Accessibility in Native and Browser-Based Runtime Environments.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CERTIFICATIONS -->
+
+<section>
+
+<h2 class="section-title">Certifications</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Python AI Development</h3>
+<h4>Mimo</h4>
+</div>
+
+<div class="card">
+<h3>Machine Learning for All</h3>
+<h4>University of London</h4>
+</div>
+
+<div class="card">
+<h3>Programming for Everybody</h3>
+<h4>University of Michigan</h4>
+</div>
+
+<div class="card">
+<h3>C++ for C Programmers</h3>
+<h4>UC Santa Cruz</h4>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Prasham Kumbhare • Crafted with passion & creativity
+</footer>
+
+</div>
+
+<script>
+
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity = "1";
+entry.target.style.transform = "translateY(0px)";
+
+}
+
+});
+
+});
+
+cards.forEach(card=>{
+
+card.style.opacity = "0";
+card.style.transform = "translateY(40px)";
+card.style.transition = ".8s";
+
+observer.observe(card);
+
+});
+
+</script>
+
+</body>
+</html>
+
